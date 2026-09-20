@@ -103,9 +103,9 @@ function Index() {
   return (
     <main className="overflow-x-hidden bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-xl">
-        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:px-8">
+        <div className="mx-auto grid h-18 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 sm:h-20 lg:px-8">
           <a href="#inicio" className="flex min-w-0 items-center" aria-label="DeliPanese, inicio">
-            <img src={logoAsset.url} alt="DeliPanese, el pan sin culpa" className="h-14 w-40 object-cover object-center" width={160} height={56} />
+            <img src={logoAsset.url} alt="DeliPanese, el pan sin culpa" className="h-12 w-36 object-cover object-center sm:h-14 sm:w-40" width={160} height={56} />
           </a>
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegación principal">
             {["Productos", "Beneficios", "Pedidos", "Contacto"].map((item) => (
@@ -115,32 +115,32 @@ function Index() {
               <a href={whatsappUrl("Hola DeliPanese, quiero hacer un pedido.")} target="_blank" rel="noreferrer"><WhatsAppIcon /> Pedir por WhatsApp</a>
             </Button>
           </nav>
-          <Button variant="ghost" size="icon" className="rounded-full lg:hidden" onClick={() => setMobileOpen((open) => !open)} aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}>
+          <Button variant="ghost" size="icon" className="size-11 shrink-0 rounded-full lg:hidden" onClick={() => setMobileOpen((open) => !open)} aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"} aria-expanded={mobileOpen} aria-controls="mobile-navigation">
             {mobileOpen ? <X /> : <Menu />}
           </Button>
         </div>
         {mobileOpen && (
-          <nav className="border-t border-border bg-background px-5 py-5 lg:hidden" aria-label="Navegación móvil">
+          <nav id="mobile-navigation" className="border-t border-border bg-background px-5 py-4 lg:hidden" aria-label="Navegación móvil">
             <div className="mx-auto flex max-w-7xl flex-col gap-1">
               {["Productos", "Beneficios", "Pedidos", "Contacto"].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-3 font-semibold hover:bg-muted">{item}</a>
+                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMobileOpen(false)} className="flex min-h-11 items-center rounded-lg px-3 py-2 font-semibold hover:bg-muted">{item}</a>
               ))}
             </div>
           </nav>
         )}
       </header>
 
-      <section id="inicio" className="relative min-h-[calc(100svh-5rem)] scroll-mt-20">
+      <section id="inicio" className="relative min-h-[calc(100svh-4.5rem)] scroll-mt-18 sm:min-h-[calc(100svh-5rem)] sm:scroll-mt-20">
         <img src={heroImage} alt="Pan keto, galletas, cheesecake y brownies artesanales de DeliPanese" className="absolute inset-0 h-full w-full object-cover" width={1600} height={1000} />
         <div className="absolute inset-0 bg-hero-overlay" />
-        <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-7xl items-end px-5 pb-16 pt-24 sm:items-center sm:py-24 lg:px-8">
+        <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl items-end px-5 pb-28 pt-20 sm:min-h-[calc(100svh-5rem)] sm:items-center sm:py-24 lg:px-8">
           <div className="max-w-3xl text-primary-foreground">
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-foreground/20 px-4 py-2 text-xs font-bold uppercase tracking-widest backdrop-blur-md"><Leaf className="size-4" /> Horneado artesanal en Colima</span>
-            <h1 className="font-display text-5xl leading-[1.03] font-semibold sm:text-6xl lg:text-7xl">Pan y postres sin culpa, horneados frescos cada día</h1>
+            <h1 className="font-display text-[2.75rem] leading-[1.05] font-semibold sm:text-6xl lg:text-7xl">Pan y postres sin culpa, horneados frescos cada día</h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/90 sm:text-xl">Sin gluten, sin azúcar añadida, keto friendly y con opciones de alta proteína. Sabor real para disfrutar bonito y sentirte bien.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="h-13 rounded-full bg-background px-7 text-primary hover:bg-background/90"><a href="#productos">Ver menú <ArrowRight /></a></Button>
-              <Button asChild size="lg" variant="outline" className="h-13 rounded-full border-primary-foreground/50 bg-transparent px-7 text-primary-foreground shadow-none hover:bg-primary-foreground/10 hover:text-primary-foreground"><a href={whatsappUrl("Hola DeliPanese, quiero conocer el menú y hacer un pedido.")} target="_blank" rel="noreferrer"><WhatsAppIcon /> Pedir por WhatsApp</a></Button>
+              <Button asChild size="lg" className="h-12 w-full rounded-full bg-background px-6 text-primary hover:bg-background/90 sm:h-13 sm:w-auto sm:px-7"><a className="whitespace-nowrap" href="#productos">Ver menú <ArrowRight /></a></Button>
+              <Button asChild size="lg" variant="outline" className="h-12 w-full rounded-full border-primary-foreground/50 bg-transparent px-6 text-primary-foreground shadow-none hover:bg-primary-foreground/10 hover:text-primary-foreground sm:h-13 sm:w-auto sm:px-7"><a className="whitespace-nowrap" href={whatsappUrl("Hola DeliPanese, quiero conocer el menú y hacer un pedido.")} target="_blank" rel="noreferrer"><WhatsAppIcon /> Pedir por WhatsApp</a></Button>
             </div>
           </div>
         </div>
@@ -158,16 +158,16 @@ function Index() {
       <section id="productos" className="scroll-mt-20 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mx-auto max-w-2xl text-center"><p className="section-kicker">Hecho para antojarte</p><h2 className="section-title">Nuestro menú</h2><p className="section-copy">Recetas honestas, ingredientes que reconoces y el sabor casero que estabas buscando.</p></div>
-          <div className="mt-10 flex gap-2 overflow-x-auto pb-3 sm:justify-center" role="tablist" aria-label="Filtrar productos">
-            {categories.map((category) => <Button key={category} type="button" size="sm" variant={activeCategory === category ? "default" : "outline"} className="shrink-0 rounded-full px-5 shadow-none" onClick={() => setActiveCategory(category)} role="tab" aria-selected={activeCategory === category}>{category}</Button>)}
+          <div className="-mx-5 mt-8 flex snap-x gap-2 overflow-x-auto px-5 pb-3 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:justify-center sm:px-0" role="tablist" aria-label="Filtrar productos">
+            {categories.map((category) => <Button key={category} type="button" size="sm" variant={activeCategory === category ? "default" : "outline"} className="h-11 shrink-0 snap-start rounded-full px-5 whitespace-nowrap shadow-none" onClick={() => setActiveCategory(category)} role="tab" aria-selected={activeCategory === category}>{category}</Button>)}
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {visibleProducts.map((product) => (
-              <article key={product.name} className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-transform duration-300 hover:-translate-y-1">
-                <div className="h-64 overflow-hidden"><img src={productsImage} alt={product.name} className="h-full w-full scale-[2.02] object-cover transition-transform duration-500 group-hover:scale-[2.08]" style={{ objectPosition: product.position }} loading="lazy" width={768} height={512} /></div>
-                <div className="p-6"><div className="flex min-w-0 items-start justify-between gap-4"><h3 className="min-w-0 font-display text-2xl font-semibold leading-tight">{product.name}</h3><span className="shrink-0 font-bold text-primary">${product.price} MXN</span></div>
+              <article key={product.name} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-transform duration-300 hover:-translate-y-1 sm:rounded-3xl">
+                <div className="h-56 overflow-hidden sm:h-64"><img src={productsImage} alt={product.name} className="h-full w-full scale-[2.02] object-cover transition-transform duration-500 group-hover:scale-[2.08]" style={{ objectPosition: product.position }} loading="lazy" width={768} height={512} /></div>
+                <div className="p-5 sm:p-6"><div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-3"><h3 className="min-w-0 font-display text-xl font-semibold leading-tight sm:text-2xl">{product.name}</h3><span className="shrink-0 whitespace-nowrap text-sm font-bold text-primary sm:text-base">${product.price} MXN</span></div>
                   <div className="mt-4 flex flex-wrap gap-2">{product.badges.map((badge) => <span key={badge} className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-secondary-foreground">{badge}</span>)}</div>
-                  <Button asChild className="mt-6 w-full rounded-full shadow-none"><a href={whatsappUrl(`Hola DeliPanese, quiero pedir: ${product.name}.`)} target="_blank" rel="noreferrer">Pedir <ShoppingBag /></a></Button>
+                  <Button asChild className="mt-6 h-12 w-full rounded-full shadow-none"><a className="whitespace-nowrap" href={whatsappUrl(`Hola DeliPanese, quiero pedir: ${product.name}.`)} target="_blank" rel="noreferrer">Pedir <ShoppingBag /></a></Button>
                 </div>
               </article>
             ))}
@@ -210,19 +210,19 @@ function Index() {
             <Button asChild variant="outline" className="mt-6 rounded-full shadow-none"><a href="https://www.ubereats.com/mx" target="_blank" rel="noreferrer">Buscar en Uber Eats <ArrowRight /></a></Button>
           </div>
           <div className="self-start rounded-3xl bg-muted p-7 sm:p-10"><CakeSlice className="size-8 text-primary" /><h2 className="mt-5 font-display text-3xl font-semibold">Cuéntanos qué se te antoja</h2><p className="mt-3 text-muted-foreground">Envíanos tu mensaje y continuaremos tu pedido por WhatsApp.</p>
-            <form onSubmit={submitContact} className="mt-8 space-y-5"><label className="block text-sm font-bold">Nombre<Input name="nombre" required placeholder="Tu nombre" className="mt-2 h-12 rounded-xl bg-background" /></label><label className="block text-sm font-bold">Teléfono<Input name="telefono" type="tel" required placeholder="312 000 0000" className="mt-2 h-12 rounded-xl bg-background" /></label><label className="block text-sm font-bold">Mensaje<Textarea name="mensaje" required placeholder="Quiero pedir..." className="mt-2 min-h-32 rounded-xl bg-background" /></label><Button type="submit" size="lg" className="h-12 w-full rounded-full"><WhatsAppIcon /> Enviar mensaje</Button></form>
+            <form onSubmit={submitContact} className="mt-8 space-y-5"><label className="block text-sm font-bold">Nombre<Input name="nombre" required placeholder="Tu nombre" className="mt-2 h-12 rounded-xl bg-background" /></label><label className="block text-sm font-bold">Teléfono<Input name="telefono" type="tel" inputMode="tel" required placeholder="312 000 0000" className="mt-2 h-12 rounded-xl bg-background" /></label><label className="block text-sm font-bold">Mensaje<Textarea name="mensaje" required placeholder="Quiero pedir..." className="mt-2 min-h-32 rounded-xl bg-background" /></label><Button type="submit" size="lg" className="h-12 w-full rounded-full whitespace-nowrap"><WhatsAppIcon /> Enviar mensaje</Button></form>
           </div>
         </div>
       </section>
 
-      <section className="px-5 pb-20 sm:pb-28 lg:px-8"><div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-cta px-6 py-14 text-center text-primary-foreground sm:px-12 sm:py-18"><p className="text-sm font-extrabold uppercase tracking-widest text-primary-foreground/75">Tu próximo favorito está aquí</p><h2 className="mt-3 font-display text-4xl font-semibold sm:text-5xl">¿Se te antojó? Pide hoy mismo</h2><p className="mx-auto mt-4 max-w-xl text-primary-foreground/85">Lo horneamos fresco para ti. Escríbenos y te ayudamos a elegir.</p><Button asChild size="lg" className="mt-7 h-13 rounded-full bg-background px-7 text-primary hover:bg-background/90"><a href={whatsappUrl("Hola DeliPanese, ¡se me antojó! Quiero hacer un pedido.")} target="_blank" rel="noreferrer"><WhatsAppIcon /> Pedir por WhatsApp</a></Button></div></section>
+      <section className="px-5 pb-20 sm:pb-28 lg:px-8"><div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-cta px-5 py-14 text-center text-primary-foreground sm:px-12 sm:py-18"><p className="text-sm font-extrabold uppercase tracking-widest text-primary-foreground/75">Tu próximo favorito está aquí</p><h2 className="mt-3 font-display text-4xl font-semibold sm:text-5xl">¿Se te antojó? Pide hoy mismo</h2><p className="mx-auto mt-4 max-w-xl text-primary-foreground/85">Lo horneamos fresco para ti. Escríbenos y te ayudamos a elegir.</p><Button asChild size="lg" className="mt-7 h-12 w-full rounded-full bg-background px-5 text-primary hover:bg-background/90 sm:h-13 sm:w-auto sm:px-7"><a className="whitespace-nowrap" href={whatsappUrl("Hola DeliPanese, ¡se me antojó! Quiero hacer un pedido.")} target="_blank" rel="noreferrer"><WhatsAppIcon /> Pedir por WhatsApp</a></Button></div></section>
 
-      <footer className="border-t border-border bg-footer py-12 text-footer-foreground">
+      <footer className="border-t border-border bg-footer pt-12 pb-24 text-footer-foreground sm:py-12">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:px-8"><div><img src={logoAsset.url} alt="DeliPanese" className="h-20 w-52 rounded-xl object-cover" width={208} height={80} /><p className="mt-4 max-w-sm text-sm leading-relaxed text-footer-foreground/70">Pan y repostería artesanal para disfrutar sin culpa, hechos con cariño en Colima.</p></div><div><h3 className="font-display text-xl font-semibold">Explora</h3><nav className="mt-4 flex flex-col gap-3 text-sm text-footer-foreground/70">{["Productos","Beneficios","Pedidos","Contacto"].map((item) => <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-footer-foreground">{item}</a>)}</nav></div><div><h3 className="font-display text-xl font-semibold">Síguenos</h3><div className="mt-4 flex gap-3"><a href="https://instagram.com/delipanese" target="_blank" rel="noreferrer" aria-label="Instagram de DeliPanese" className="social-link"><Instagram /></a><a href="https://facebook.com/delipanese" target="_blank" rel="noreferrer" aria-label="Facebook de DeliPanese" className="social-link"><Facebook /></a><a href="https://tiktok.com/@delipanese" target="_blank" rel="noreferrer" aria-label="TikTok de DeliPanese" className="social-link"><span className="font-bold">Tk</span></a></div><p className="mt-4 text-sm text-footer-foreground/70">@delipanese</p></div></div>
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-footer-foreground/15 px-5 pt-7 text-xs text-footer-foreground/60 sm:flex-row sm:justify-between lg:px-8"><p>© 2026 DeliPanese. Todos los derechos reservados.</p><a href="#contacto" className="hover:text-footer-foreground">Aviso de privacidad</a></div>
       </footer>
 
-      <a href={whatsappUrl("Hola DeliPanese, quiero hacer un pedido.")} target="_blank" rel="noreferrer" aria-label="Pedir por WhatsApp" className="fixed right-5 bottom-5 z-50 grid size-15 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-float transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><WhatsAppIcon className="size-7" /></a>
+      <a href={whatsappUrl("Hola DeliPanese, quiero hacer un pedido.")} target="_blank" rel="noreferrer" aria-label="Pedir por WhatsApp" className="fixed right-5 bottom-[calc(1.25rem+env(safe-area-inset-bottom))] z-50 grid size-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-float transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><WhatsAppIcon className="size-7" /></a>
     </main>
   );
 }
