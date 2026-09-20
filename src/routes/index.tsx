@@ -133,7 +133,7 @@ function Index() {
       <section id="inicio" className="relative min-h-[calc(100svh-4.5rem)] scroll-mt-18 sm:min-h-[calc(100svh-5rem)] sm:scroll-mt-20">
         <img src={heroImage} alt="Pan keto, galletas, cheesecake y brownies artesanales de DeliPanese" className="absolute inset-0 h-full w-full object-cover" width={1600} height={1000} />
         <div className="absolute inset-0 bg-hero-overlay" />
-        <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl items-end px-5 pb-12 pt-20 sm:min-h-[calc(100svh-5rem)] sm:items-center sm:py-24 lg:px-8">
+        <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl items-end px-5 pb-28 pt-20 sm:min-h-[calc(100svh-5rem)] sm:items-center sm:py-24 lg:px-8">
           <div className="max-w-3xl text-primary-foreground">
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-foreground/20 px-4 py-2 text-xs font-bold uppercase tracking-widest backdrop-blur-md"><Leaf className="size-4" /> Horneado artesanal en Colima</span>
             <h1 className="font-display text-[2.75rem] leading-[1.05] font-semibold sm:text-6xl lg:text-7xl">Pan y postres sin culpa, horneados frescos cada día</h1>
@@ -222,7 +222,7 @@ function Index() {
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-footer-foreground/15 px-5 pt-7 text-xs text-footer-foreground/60 sm:flex-row sm:justify-between lg:px-8"><p>© 2026 DeliPanese. Todos los derechos reservados.</p><a href="#contacto" className="hover:text-footer-foreground">Aviso de privacidad</a></div>
       </footer>
 
-      <a href={whatsappUrl("Hola DeliPanese, quiero hacer un pedido.")} target="_blank" rel="noreferrer" aria-label="Pedir por WhatsApp" className="fixed right-5 bottom-5 z-50 grid size-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-float transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><WhatsAppIcon className="size-7" /></a>
+      <a href={whatsappUrl("Hola DeliPanese, quiero hacer un pedido.")} target="_blank" rel="noreferrer" aria-label="Pedir por WhatsApp" className="fixed right-5 bottom-[calc(1.25rem+env(safe-area-inset-bottom))] z-50 grid size-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-float transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><WhatsAppIcon className="size-7" /></a>
     </main>
   );
 }
